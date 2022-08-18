@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mi-servicio
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mi-servicio
+  template:
+    metadata:
+      labels:
+        app: mi-servicio
+    spec:
+      containers:
+      - name: hello
+        image: <Mi_imagen_dockerhub>
+        imagePullPolicy: IfNotPresent        
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "200m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        # livenessProbe:
+        #   httpGet:
+        #     path: /healthcheck
+        #     port: 3000
+        #     # httpHeaders:
+        #     # - name: Custom-Header
+        #     #   value: Awesome
+        #   initialDelaySeconds: 10
+        #   periodSeconds: 15
+        # readinessProbe:
+        #   httpGet:
+        #     path: /healthcheck
+        #     port: 3000
+        #     # httpHeaders:
+        #     # - name: Custom-Header
+        #     #   value: Awesome
+        #   initialDelaySeconds: 10
+        #   periodSeconds: 15
