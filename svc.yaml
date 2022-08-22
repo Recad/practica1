@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: hello-v1-svc
+  name: galleta-svc
 spec:
   selector:
     app: mi-servicio
@@ -10,4 +10,4 @@ spec:
   ports:
   - protocol: TCP
     port: 80
-    targetPort: 8080
+    targetPort: 5000

@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mi-servicio
+  name: mi-galleta
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: mi-servicio
+      app: mi-galleta
   template:
     metadata:
       labels:
-        app: mi-servicio
+        app: mi-galleta
     spec:
       containers:
-      - name: hello
-        image: <Mi_imagen_dockerhub>
+      - name: galleta-container
+        image: claitoun/galletafortuna
         imagePullPolicy: IfNotPresent        
         ports:
-        - containerPort: 8080
+        - containerPort: 5000
         resources:
           requests:
             memory: "64Mi"
